@@ -1,67 +1,55 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mx.edu.itsur.pokebatalla.model.battles;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
+import mx.edu.itsur.pokebatalla.model.Pokemons.Pokemon;
 
 /**
  *
- * @author FJML1983
+ * @author Francisco Gonzalez Regalado
  */
-public class Entrenador {
-
-    //3a Atributos
+public class Entrenador implements Serializable{
     protected String nombre;
     protected List<Pokemon> pokemonsCapturados;
     protected Pokemon pokemonActual;
 
-    //3b Constructor
     public Entrenador(String nombre) {
         this.nombre = nombre;
         pokemonsCapturados = new ArrayList<>();
     }
-
-    //3c Metodos
-    public void capturarPokemon(Pokemon pk) {
+    
+    public void capturarPokemon(Pokemon pk){
         pokemonsCapturados.add(pk);
     }
-
-    //Instruir movimiento 
-    public void instruirMovimientoAlPokemonActual(Pokemon oponente, int ordinalMovimiento)
-    {
+    
+    public void instruirMovimientoAlPokemonActual(Pokemon oponente, int ordinalMovimiento){
         this.pokemonActual.atacar(oponente, ordinalMovimiento);
     }
-
-    //Devuelve true cuando todos los Pokemon del entrenador tengan 0 HP
-    public boolean estaDerrotado() 
-    {
+    
+    public boolean estaDerotado(){
         int sumaHP = 0;
         for (Pokemon pokemon : pokemonsCapturados) {
-            sumaHP += pokemon.getHp();
+        sumaHP += pokemon.getHp();
         }
         
         return (sumaHP <= 0);
     }
-
-    //Getters y Setters
-    public String getNombre(){
+    
+    
+    public String getNombre() {
         return nombre;
     }
 
-    public Pokemon getPokemonActual(){
-        return this.pokemonActual;
+    public Pokemon getPokemonActual() {
+        return pokemonActual;
     }
 
-    public void setPokemonActual(Pokemon p){
+    public void setPokemonActual(Pokemon p) {
         this.pokemonActual = p;
     }
 
-    public List<Pokemon> getPokemonsCapturados(){
+    public List<Pokemon> getPokemonsCapturados() {
         return this.pokemonsCapturados;
-    }    
-    
+    }
 }
