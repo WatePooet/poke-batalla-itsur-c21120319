@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author 
+ * @author Francisco Gonzalez Regalado
  */
 public class FileManager {
 
